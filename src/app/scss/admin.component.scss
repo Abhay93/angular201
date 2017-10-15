@@ -1,0 +1,23 @@
+table {
+    margin:5px 0px 0px 30px
+  }
+  table tr:first-child {
+    text-align: right;
+  }
+  
+  table tr {
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 2px solid grey;
+  }
+  
+  
+  table tr td {
+    padding: 10px;
+  }
+  
+  table tr img {
+    height: 120px;
+    width: 100px;
+    cursor: pointer
+  }

@@ -1,0 +1,20 @@
+<section [ngClass]="['col-sm-12 details-section']">
+    <div *ngIf="book && previousRoute !== 'edit'" [ngClass]="['col-sm-12']">
+        <img src="assets/images/amazon.jpg" class=" img-responsive col-sm-3" alt="{{book.title}}">
+        <div [ngClass]="['info-box col-sm-9']">
+            <h2 [ngClass]="['title col-sm-12']">{{book.title}} <br><span>by <span [ngClass]="['author']">{{book.author}}</span></span>
+            </h2>
+            <p [ngClass]="['col-sm-12']">{{book.description}}</p>
+            <p [ngClass]="['col-sm-2']">ISBN</p>
+            <p>{{book.ISBN}}</p>
+            <p [ngClass]="['col-sm-2']">Copies</p>
+            <p>{{book.copies}}</p>
+            <textarea [ngClass]="['form-control']" placeholder="Write Review"></textarea>
+            <button [ngClass]="['btn btn-md back-button']" (click)="issueBook()">Issue</button>
+            <button [ngClass]="['btn btn-md back-button']" (click)="goBack()">Back</button>
+        </div>
+    </div>
+    <div *ngIf="book && previousRoute === 'edit'">
+        
+    </div>
+</section>

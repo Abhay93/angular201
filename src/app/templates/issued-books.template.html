@@ -1,0 +1,11 @@
+<table [ngClass]="['col-sm-10']">
+    <tr><th>Cover</th><th>Title</th><th>Author</th><th>Return By</th></tr>
+    <tr *ngFor="let book of books" [routerLink]="['/detail', book.id]">
+        <td [ngClass]="['col-sm-3']">
+            <img src = "assets/images/amazon.jpg" class = "img-responsive" alt="{{book.title}}">
+        </td>
+        <td [ngClass]="['col-sm-3']">{{book.title}}</td>
+        <td [ngClass]="['col-sm-3']">{{book.author}}</td>
+        <td [ngClass]="['col-sm-3']">Return By</td>
+    </tr>
+</table>
