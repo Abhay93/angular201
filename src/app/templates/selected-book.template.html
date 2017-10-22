@@ -10,11 +10,20 @@
             <p [ngClass]="['col-sm-2']">Copies</p>
             <p>{{book.copies}}</p>
             <textarea [ngClass]="['form-control']" placeholder="Write Review"></textarea>
-            <button [ngClass]="['btn btn-md back-button']" (click)="issueBook()">Issue</button>
-            <button [ngClass]="['btn btn-md back-button']" (click)="goBack()">Back</button>
+            <button [ngClass]="['btn btn-lg']" (click)="issueBook(book)">Issue</button>
+            <button [ngClass]="['btn btn-lg back-button']" (click)="goBack()">Back</button>
         </div>
     </div>
     <div *ngIf="book && previousRoute === 'edit'">
-        
+        <table [ngClass]="['col-sm-10']">
+            <tr><th [ngClass]="['col-sm-2']">Title</th><td [ngClass]="['col-sm-10']"><input #title [ngClass]="['col-sm-12']" value="{{book.title}}"></td></tr>
+            <tr><th [ngClass]="['col-sm-2']">Author</th><td [ngClass]="['col-sm-10']"><input #author [ngClass]="['col-sm-12']" value="{{book.author}}"></td></tr>
+            <tr><th [ngClass]="['col-sm-2']">Copies</th><td [ngClass]="['col-sm-10']"><input #copies [ngClass]="['col-sm-12']" value="{{book.copies}}"></td></tr>
+            <tr><th [ngClass]="['col-sm-2']">Description</th><td [ngClass]="['col-sm-10']"><textarea #description [ngClass]="['col-sm-12']">{{book.description}}</textarea></td></tr>
+            <tr>
+                <th [ngClass]="['col-sm-2']"><button [ngClass] = "['btn btn-lg btn-primary']">Update</button></th>
+                <th [ngClass]="['col-sm-4']"><button [ngClass] = "['btn btn-lg btn-primary']" (click)="goBack()">Cancel</button></th>
+            </tr>
+        </table>
     </div>
 </section>

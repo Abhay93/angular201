@@ -1,0 +1,113 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    height: 100%;
+    background: red
+
+}
+.sidebar {
+    list-style: none;
+    background: #0288D1;
+    color: #fff;
+    height: 100%
+  }
+.sidebar li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    height: 100%
+}
+
+.content-wrapper {
+    background: #03A9F4;
+    padding: 10px;
+}
+  
+.filter-list {
+    list-style: none;
+    margin-top: 50px;
+}
+
+.filter-list li {
+    display: inline;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.books {
+    list-style: none;
+}
+
+.books li {
+    display: inline;
+    cursor: pointer
+}
+
+.books img {
+    margin: 5px;
+}
+
+table {
+    margin:5px 0px 0px 30px
+}
+table tr:first-child {
+    text-align: right;
+}
+
+table tr {
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 2px solid grey;
+}
+
+
+table tr td {
+    padding: 10px;
+}
+
+table tr img {
+    height: 120px;
+    width: 100px;
+    cursor: pointer
+}
+
+div.info-box {
+    padding: 10px;
+}
+.title {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+.title span {
+    font-size: 14px;
+    color: #333333;
+}
+
+.title span.author {
+    font-size: 16px;
+}
+
+input, textarea {
+    height:40px;
+    padding:5px;
+    margin: 5px 1px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    color: #555;
+    background: #fff;
+}
+textarea {
+    height: 100px;
+    resize: none;
+}
+button {
+    margin: 10px;
+    padding:5px;
+    color: #fff;
+    background: #0288D1;
+}

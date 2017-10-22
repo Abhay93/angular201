@@ -1,14 +1,3 @@
-<div [ngClass] = "['wrapper col-sm-12']">
-    <aside [ngClass] = "['sidebar col-sm-3']">
-        <ul>
-            <li routerLink="/books">All Books</li>
-            <li routerLink="/mybooks">My Books</li>
-            <li routerLink="/recommendation">Recommendations</li>
-            <li routerLink="/profile">Profile</li>
-            
-        </ul>
-    </aside>
-    <section [ngClass]="['col-sm-9 content-wrapper']">
-            <router-outlet></router-outlet>
-    </section>
-</div>
+<section [ngClass]="['col-sm-12 content-wrapper']">
+    <router-outlet></router-outlet>
+</section>

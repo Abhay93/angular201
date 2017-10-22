@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { User} from '../classes/user'
+import { UserService} from '../services/user.service'
 
 
 @Component ({
@@ -8,5 +12,8 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-    
+    constructor(private router: Router) { }
+    ngOnInit() {
+        this.router.navigate(['/login']);   
+    }
 }

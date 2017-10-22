@@ -1,0 +1,7 @@
+<div [ngClass] ="['container col-sm-4']">
+    <h2>Login</h2>
+    <p [ngClass]="['alert alert-danger message']" *ngIf = "errorMessage">{{this.errorMessage}}</p>
+    <input #username id="username" placeholder="Username" [ngClass]="['col-sm-8 form-control']" >
+    <input #password id="password" placeholder="Password" [ngClass]="['col-sm-8 form-control']" >
+    <button [ngClass]="['btn btn-lg btn-primary']" (click)="login(username.value, password.value)">Login</button>
+</div>

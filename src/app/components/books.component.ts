@@ -8,7 +8,7 @@ import { BookService} from '../services/book.service'
 @Component({
   selector: 'books',
   templateUrl: '../templates/books.template.html',
-  styleUrls: ['../scss/book.component.scss']
+  styleUrls: ['../scss/user.component.scss']
 })
 
 
@@ -33,13 +33,11 @@ export class BooksComponent implements OnInit {
 
   getBooks(): void {
     this.bookService.getBooks().then(books => this.books = books);
-    console.log(this.books)
   }
 
   goToBook(book: Book): void {
     this.selectedBook = book;
-    console.log("ABHAY"+this.selectedBook)
-    this.router.navigate(['/detail', this.selectedBook.id]);
+    this.router.navigate(['/user/detail', this.selectedBook.id]);
   }
   
   

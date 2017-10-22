@@ -1,14 +1,13 @@
-<table [ngClass]="['col-sm-10']">
-        <tr><th>Cover</th><th>Title</th><th>Author</th><th>Action</th></tr>
-        <tr *ngFor="let book of books">
-            <td [ngClass]="['col-sm-3']">
-                <img src = "assets/images/amazon.jpg" class = "img-responsive" alt="{{book.title}}" [routerLink]="['/detail', book.id]">
-            </td>
-            <td [ngClass]="['col-sm-3']">{{book.title}}</td>
-            <td [ngClass]="['col-sm-3']">{{book.author}}</td>
-            <td [ngClass]="['col-sm-3']">
-                <button [ngClass]="['btn btn-md btn-primary']" (click)="updateBook(book);" [routerLink]="['/edit', book.id]">Edit</button>
-                <button [ngClass]="['btn btn-md btn-danger']" (click)="deleteBook(book); $event.stopPropagation()">Delete</button>
-            </td>
-        </tr>
-    </table>
+<div [ngClass] = "['wrapper col-sm-12']">
+        <aside [ngClass] = "['sidebar col-sm-3']">
+            <ul>
+                <li routerLink="/admin/list-books">All Books</li>
+                <li routerLink="/admin/add-book">Add Book</li>
+                <li routerLink="/admin/user">Users</li>
+                <li routerLink="/logout">LogOut</li>
+            </ul>
+        </aside>
+        <section [ngClass]="['col-sm-9 content-wrapper']">
+                <router-outlet></router-outlet>
+        </section>
+</div>

@@ -1,0 +1,14 @@
+<table [ngClass]="['col-sm-9']">
+    <tr><th>Cover</th><th>Title</th><th>Author</th><th>Action</th></tr>
+    <tr *ngFor="let book of books">
+        <td [ngClass]="['col-sm-3']">
+            <img src = "assets/images/amazon.jpg" class = "img-responsive" alt="{{book.title}}" [routerLink]="['/detail', book.id]">
+        </td>
+        <td [ngClass]="['col-sm-3']">{{book.title}}</td>
+        <td [ngClass]="['col-sm-3']">{{book.author}}</td>
+        <td [ngClass]="['col-sm-3']">
+            <button [ngClass]="['btn btn-md btn-primary']" (click)="updateBook(book);" [routerLink]="['/edit', book.id]">Edit</button>
+            <button [ngClass]="['btn btn-md btn-danger']" (click)="deleteBook(book); $event.stopPropagation()">Delete</button>
+        </td>
+    </tr>
+</table> 

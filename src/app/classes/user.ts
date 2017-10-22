@@ -5,5 +5,6 @@ export class User {
     favoriteGenre: String[];
     facebookURL : string
     issuedBooks: number;
+    role: string;
 
 }

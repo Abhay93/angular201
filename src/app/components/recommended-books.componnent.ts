@@ -9,8 +9,8 @@ import { BookService} from '../services/book.service'
 
 @Component({
   selector: 'books',
-  templateUrl: '../templates/books.template.html',
-  styleUrls: ['../scss/book.component.scss']
+  templateUrl: '../templates/recommended-books.template.html',
+  styleUrls: ['../scss/user.component.scss']
 })
 
 

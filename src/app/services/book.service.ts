@@ -18,13 +18,13 @@ export class BookService {
         .map(res => res.json())
         .subscribe(data => this.books = data,
                     err => console.log(err),
-                    () => console.log('Completed'));
+                    () => console.log('Completed laoding books'));
     };
 
     getBooks(): Promise<Book[]> {
-        // console.log(this.books);
-        // return Promise.resolve(this.books);
-        return Promise.resolve(BOOKS);
+        console.log(this.books);
+        return Promise.resolve(this.books);
+        // return Promise.resolve(BOOKS);
         
       }
 

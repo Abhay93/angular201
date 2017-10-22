@@ -9,7 +9,7 @@ import { BookService } from '../services/book.service';
 @Component({
   selector: 'selected-book',
   templateUrl: '../templates/selected-book.template.html',
-  styleUrls: ['../scss/selected-book.component.scss']
+  styleUrls: ['../scss/user.component.scss']
   
   
 })
@@ -28,7 +28,11 @@ export class SelectedBookComponent implements OnInit {
       this.route.paramMap
       .switchMap((params: ParamMap) => this.bookService.getBook(+params.get('id')))
       .subscribe(book => this.book = book);
-      this.previousRoute = this.router.url.substr(1,4);
+      this.previousRoute = this.router.url.split("/")[2];
+  }
+
+  issueBook(book: Book) {
+    console.log(book)
   }
 
   goBack(): void {
