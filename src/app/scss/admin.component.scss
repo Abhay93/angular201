@@ -16,7 +16,7 @@ body{
 .sidebar li {
   padding: 10px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
   height: 100%
 }
 
@@ -25,11 +25,9 @@ body{
   padding-top: 10px;
 }
 
-
-table {
-  margin:5px 0px 0px 30px
-}
 table tr:first-child {
+  background: white;
+  border-top: none;
   text-align: right;
 }
 
@@ -45,8 +43,8 @@ table tr td {
 }
 
 table tr img {
-  height: 120px;
-  width: 100px;
+  height: 100px;
+  width: 80px;
   cursor: pointer
 }
 
@@ -75,4 +73,8 @@ button.btn-primary, button.btn-danger {
 button.btn-danger {
   background: #d9534f;
   border-color: #d43f3a;
+}
+
+.addContainer {
+  margin:5px 4px;
 }

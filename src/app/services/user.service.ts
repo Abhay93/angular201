@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
 import { User } from '../classes/user';
-import { USERS} from '../data/mock-users';
 
 @Injectable()
 export class UserService {

@@ -20,6 +20,10 @@ export class BooksComponent implements OnInit {
   searchResults: Book[];
   searchFlag: boolean = false;
   selectedBook: Book;
+  previousRoute: string;
+  listBooks: boolean;
+  addBookFlag: boolean;
+  newBook: Book;
   searchForm = new FormGroup({
     searchControl : new FormControl()
   })
@@ -29,6 +33,9 @@ export class BooksComponent implements OnInit {
   ngOnInit(): void {
     this.getBooks();
     this.filteredBooks = this.books;
+    this.previousRoute = this.router.url.split("/")[1];
+    if(this.previousRoute === "admin") this.listBooks = true
+    if(this.router.url.split("/")[2] === "add-book") { this.addBookFlag = true; this.listBooks = false;}
   }
 
   getBooks(): void {
@@ -49,5 +56,19 @@ export class BooksComponent implements OnInit {
   searchBook(searchTerm: string): void {
     this.bookService.searchBooks(searchTerm).then(books => this.searchResults = books);
     this.searchFlag = true;
+  }
+
+  addBook(title:string, author:string, description:string, ISBN: number): void {
+    this.newBook = new Book;
+    this.newBook.title = title;
+    this.newBook.author = author;
+    this.newBook.description = description;
+    this.newBook.ISBN = ISBN;
+    this.books.push(this.newBook);
+
+  }
+
+  deleteBook(book: Book): void {
+    this.books.splice(this.books.indexOf(book),1);
   }
 }

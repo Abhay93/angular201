@@ -11,27 +11,9 @@ import { BookService} from '../services/book.service'
 })
 
 export class RegisteredUsersComponent {
-    books: Book[];
-    selectedBook : Book;
-    constructor(private bookService: BookService) { }
+    constructor() { }
     
     ngOnInit(): void {
-        this.getBooks();
-    }
-    
-    getBooks(): void {
-        this.bookService.getBooks().then(books => this.books = books);
-        console.log("ABhay"+this.books)
-    }
-
-    deleteBook(book: Book): void {
-        this.bookService.deleteBook(book);
-        this.getBooks()
-    }
-
-    updateBook(book: Book): void {
-        this.bookService.updateBook(book);
-        this.getBooks()
     }
 
     

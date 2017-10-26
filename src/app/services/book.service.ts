@@ -5,7 +5,6 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 import { Book } from '../classes/Book';
-import { BOOKS} from '../data/mock-books';
 
 @Injectable()
 export class BookService {
@@ -23,9 +22,7 @@ export class BookService {
 
     getBooks(): Promise<Book[]> {
         console.log(this.books);
-        return Promise.resolve(this.books);
-        // return Promise.resolve(BOOKS);
-        
+        return Promise.resolve(this.books);        
       }
 
     searchBooks(searchTerm: string) {
@@ -40,9 +37,10 @@ export class BookService {
                 .then(books => books.find(book => book.id === id));
     }
 
-    deleteBook(book: Book): void {
-        console.log("index"+this.indexOfBook)     
-    }
+    // deleteBook(selectedBook: Book): Promise<Book[]> {
+    //     return this.getBooks()
+    //             .then(books => books.filter(book => book != selectedBook));
+    // }
 
     updateBook(book: Book): void {
     //     return this.http

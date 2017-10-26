@@ -14,8 +14,6 @@ import { RecommendedBooksComponent } from './components/recommended-books.compon
 import { SelectedBookComponent } from './components/selected-book.component';
 import { ProfileComponent } from './components/profile.component';
 import { AdminComponent } from './components/admin.component';
-import { BookListComponent } from './components/book-list.component';
-import { AddBookComponent } from './components/add-book.component';
 
 
 
@@ -35,8 +33,6 @@ import { UserService} from './services/user.service'
     RecommendedBooksComponent,
     ProfileComponent,
     AdminComponent,
-    BookListComponent,
-    AddBookComponent
   ],
   providers: [BookService, UserService],
   imports: [
@@ -96,16 +92,16 @@ import { UserService} from './services/user.service'
         children: [
           {
             path: '',
-            redirectTo: 'list-books',
+            redirectTo: 'books',
             pathMatch: 'full'
           },
           {
-            path: 'list-books',
-            component: BookListComponent
+            path: 'books',
+            component: BooksComponent
           },
           {
             path: 'add-book',
-            component: AddBookComponent
+            component: BooksComponent
           },    
           {
             path: 'detail/:id',

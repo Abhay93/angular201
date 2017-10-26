@@ -1,4 +1,4 @@
-<table [ngClass]="['col-sm-10']">
+<table [ngClass]="['col-sm-12']">
     <tr><th>Cover</th><th>Title</th><th>Author</th><th>Return By</th></tr>
     <tr *ngFor="let book of books" [routerLink]="['/user/detail', book.id]">
         <td [ngClass]="['col-sm-3']">
