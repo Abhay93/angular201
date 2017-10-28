@@ -1,18 +1,20 @@
 import { Component, Input } from '@angular/core';
-import { Location } from '@angular/common';
 
 import { User} from '../classes/user'
+import { UserService} from '../services/user.service'
 
 @Component ({
     selector: "user",
     templateUrl: '../templates/profile.template.html',
-    styleUrls: ['../scss/user.component.scss']
+    styleUrls: ['../scss/app.component.scss']
 })
 
 export class ProfileComponent {
-    constructor(private location: Location) {}
+    user: User;
+    constructor(private userService: UserService) {}
+
+    ngOnInit(): void {
+        this.user = this.userService.getInitUser();
+    }
     
-    goBack(): void {
-        this.location.back();
-      }
 }

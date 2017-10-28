@@ -2,9 +2,9 @@ export class User {
     id: number;
     username: string;
     password: string;
-    favoriteGenre: String[];
+    favoriteGenre: string;
     facebookURL : string
-    issuedBooks: number;
+    issuedBooks: number[];
     role: string;
 
 }

@@ -18,6 +18,7 @@ export class LoginComponent {
         this.userService.getUser(username).then(user => {
             this.user = user;
             if(this.user != undefined && password === this.user.password){
+                this.userService.initUser(this.user);
                 if(this.user.role === "user"){
                     this.router.navigate(['/user']); 
                 } else {

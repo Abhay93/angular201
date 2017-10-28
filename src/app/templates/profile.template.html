@@ -1,15 +1,11 @@
-<section [ngClass]="['col-sm-12 user-profile']">
+<section [ngClass]="['col-sm-12 profile-wrapper']">
         
-            <img src="assets/images/amazon.jpg" class=" img-responsive col-sm-3" alt="{{user.username}}">
+            <img src="assets/images/amazon.jpg" class=" img-responsive col-xs-6 col-sm-3" alt="{{user.username}}">
             <div [ngClass]="['info-box col-sm-9']">
                 <h2 [ngClass]="['username col-sm-12']">{{user.username}}</h2>
                 <p [ngClass]="['col-sm-2']">Email</p>
                 <p>{{user.username}}</p>
                 <p [ngClass]="['col-sm-2']">Facebook ID</p>
                 <p>{{user.Facebook}}</p>
-                <button [ngClass]="['btn btn-md back-button']" (click)="goBack()">Back</button>
             </div>
-        <div *ngIf="book && previousRoute === 'edit'">
-            
-        </div>
-    </section>
+</section>

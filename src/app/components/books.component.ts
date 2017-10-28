@@ -4,16 +4,16 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { Book } from '../classes/book';
 import { BookService} from '../services/book.service'
+import { UserService} from '../services/user.service'
 
 @Component({
   selector: 'books',
   templateUrl: '../templates/books.template.html',
-  styleUrls: ['../scss/user.component.scss']
+  styleUrls: ['../scss/app.component.scss']
 })
 
 
 export class BooksComponent implements OnInit {
-
   books: Book[];
   filteredBooks: Book[];
   filter: boolean = false;
@@ -23,12 +23,15 @@ export class BooksComponent implements OnInit {
   previousRoute: string;
   listBooks: boolean;
   addBookFlag: boolean;
+  bookAdded: boolean;
   newBook: Book;
+  username: string;
+  genre: string;
   searchForm = new FormGroup({
     searchControl : new FormControl()
   })
 
-  constructor(private bookService: BookService, private router: Router) { }
+  constructor(private bookService: BookService, private router: Router,private userService: UserService) { }
 
   ngOnInit(): void {
     this.getBooks();
@@ -36,10 +39,12 @@ export class BooksComponent implements OnInit {
     this.previousRoute = this.router.url.split("/")[1];
     if(this.previousRoute === "admin") this.listBooks = true
     if(this.router.url.split("/")[2] === "add-book") { this.addBookFlag = true; this.listBooks = false;}
+    this.username = this.userService.getInitUser().username;
   }
 
   getBooks(): void {
-    this.bookService.getBooks().then(books => this.books = books);
+    console.log("IN BOOK")
+    this.bookService.getBooks().then(books => {this.books = books; console.log(this.books)});
   }
 
   goToBook(book: Book): void {
@@ -47,7 +52,14 @@ export class BooksComponent implements OnInit {
     this.router.navigate(['/user/detail', this.selectedBook.id]);
   }
   
-  
+  recommendedBooks() {
+    this.userService.getUser(this.username).then(user => {
+      this.genre = user.favoriteGenre;
+      this.filteredBooks = this.books.filter( book => book.genre === this.genre);
+      this.filter = true;
+    })
+  }
+
   filterBooks(genre: string) {
     this.filteredBooks = this.books.filter( book => book.genre === genre);
     this.filter = true;
@@ -65,10 +77,12 @@ export class BooksComponent implements OnInit {
     this.newBook.description = description;
     this.newBook.ISBN = ISBN;
     this.books.push(this.newBook);
-
+    this.bookAdded = true;
   }
 
   deleteBook(book: Book): void {
     this.books.splice(this.books.indexOf(book),1);
   }
+
+  
 }

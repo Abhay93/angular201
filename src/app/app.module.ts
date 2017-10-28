@@ -10,7 +10,6 @@ import { LoginComponent } from './components/login.component';
 import { UserComponent } from './components/user.component';
 import { BooksComponent } from './components/books.component';
 import { IssuedBooksComponent } from './components/issued-books.component';
-import { RecommendedBooksComponent } from './components/recommended-books.componnent';
 import { SelectedBookComponent } from './components/selected-book.component';
 import { ProfileComponent } from './components/profile.component';
 import { AdminComponent } from './components/admin.component';
@@ -30,7 +29,6 @@ import { UserService} from './services/user.service'
     BooksComponent,
     SelectedBookComponent,
     IssuedBooksComponent,
-    RecommendedBooksComponent,
     ProfileComponent,
     AdminComponent,
   ],
@@ -41,11 +39,6 @@ import { UserService} from './services/user.service'
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([
-      //  {
-      //    path: '',
-      //    redirectTo: '/login',
-      //    pathMatch: 'full'
-      //  },
       {
         path: 'login',
         component: LoginComponent
@@ -67,10 +60,6 @@ import { UserService} from './services/user.service'
           {
             path: 'mybooks',
             component: IssuedBooksComponent
-          },
-          {
-            path: 'recommendation',
-            component: RecommendedBooksComponent
           },
           {
             path: 'profile',

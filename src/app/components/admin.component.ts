@@ -7,7 +7,7 @@ import { BookService} from '../services/book.service'
 @Component ({
     selector: "admin",
     templateUrl: '../templates/admin.template.html',
-    styleUrls: ['../scss/admin.component.scss']
+    styleUrls: ['../scss/app.component.scss']
 })
 
 export class AdminComponent {
