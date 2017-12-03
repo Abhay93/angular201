@@ -1,0 +1,13 @@
+<div [ngClass] = "['user-wrapper col-sm-12']">
+    <aside [ngClass] = "['sidebar col-sm-3']">
+        <ul>
+            <li routerLink="/user/books">All Books</li>
+            <li routerLink="/user/mybooks">My Books</li>
+            <li routerLink="/user/profile">Profile</li>
+            <li routerLink="/logout">LogOut</li>
+        </ul>
+    </aside>
+    <section [ngClass]="['col-sm-9']">
+            <router-outlet></router-outlet>
+    </section>
+</div>

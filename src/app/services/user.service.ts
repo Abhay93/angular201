@@ -26,7 +26,6 @@ export class UserService {
         return this.user;
     }
     getUsers(): Promise<User[]> {
-        console.log(this.user)
         return Promise.resolve(this.users);
       }
     getUser(username: string): Promise<User> {

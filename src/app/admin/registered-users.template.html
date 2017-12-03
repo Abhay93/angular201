@@ -1,0 +1,11 @@
+<section [ngClass]="['user-wrapper']">
+        <table [ngClass]="['col-sm-9 table table-responsive']">
+            <tr><th>Name</th><th>Issued Books</th></tr>
+            <tr *ngFor="let user of users">
+                <td [ngClass]="['col-sm-3']" *ngIf = "user.role === 'user'">{{user.username}}</td>
+                <td [ngClass]="['col-sm-9']" *ngIf = "user.role === 'user'">
+                    <span *ngFor="let id of user.issuedBooks" [routerLink]="['/admin/detail', id]">{{books[id-1].title}}, </span>
+                </td>
+            </tr>
+        </table>
+    </section>

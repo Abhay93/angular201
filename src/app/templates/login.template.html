@@ -1,9 +1,0 @@
-<section [ngClass] ="['login-wrapper col-sm-12']">
-    <header [ngClass] ="['col-sm-12']"><p> Welcome To ATM - Any Time Library</p></header>
-    <div [ngClass] ="['login-container col-sm-4 col-xs-12']">
-        <p [ngClass]="['alert alert-danger message']" *ngIf = "errorMessage">{{this.errorMessage}}</p>
-        <input #username id="username" placeholder="Username" [ngClass]="['col-sm-8 form-control']" >
-        <input #password id="password" placeholder="Password" [ngClass]="['col-sm-8 form-control']" >
-        <button [ngClass]="['btn btn-lg btn-primary']" (click)="login(username.value, password.value)">Login</button>
-    </div>
-</section>

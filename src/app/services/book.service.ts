@@ -21,7 +21,6 @@ export class BookService {
     };
 
     getBooks(): Promise<Book[]> {
-        console.log(this.books);
         return Promise.resolve(this.books);        
       }
 
@@ -37,17 +36,22 @@ export class BookService {
                 .then(books => books.find(book => book.id === id));
     }
 
-    // deleteBook(selectedBook: Book): Promise<Book[]> {
-    //     return this.getBooks()
-    //             .then(books => books.filter(book => book != selectedBook));
-    // }
+    getBookId(title: string): number {
+      var id: number;
+      for(let book of this.books) {
+        if(book.title === title) {
+          id = book.id
+        }  
+      }
+      return id;
+    }
 
     updateBook(book: Book): void {
-    //     return this.http
-    //       .put(this.booksUrl, JSON.stringify(book), {headers: this.headers})
-    //       .toPromise()
-    //       .then(() => book);
-      }
-
-    
+      var id = this.getBookId(book.title);
+      this.books[id-1].title = book.title;
+      this.books[id-1].author = book.author;
+      this.books[id-1].copies = book.copies;
+      this.books[id-1].description = book.description;
+      
+    }    
 }

@@ -5,16 +5,15 @@ import { RouterModule }   from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { HttpModule }    from '@angular/http';
 
-import { AppComponent } from './components/app.component';
-import { LoginComponent } from './components/login.component';
-import { UserComponent } from './components/user.component';
-import { BooksComponent } from './components/books.component';
-import { IssuedBooksComponent } from './components/issued-books.component';
-import { SelectedBookComponent } from './components/selected-book.component';
-import { ProfileComponent } from './components/profile.component';
-import { AdminComponent } from './components/admin.component';
-
-
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
+import { BooksComponent } from './book/books.component';
+import { IssuedBooksComponent } from './book/issued-books.component';
+import { SelectedBookComponent } from './book/selected-book.component';
+import { ProfileComponent } from './user/profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { RegisteredUsersComponent } from './admin/registered-users.component';
 
 import { BookService} from './services/book.service'
 import { UserService} from './services/user.service'
@@ -31,6 +30,7 @@ import { UserService} from './services/user.service'
     IssuedBooksComponent,
     ProfileComponent,
     AdminComponent,
+    RegisteredUsersComponent
   ],
   providers: [BookService, UserService],
   imports: [
@@ -63,6 +63,10 @@ import { UserService} from './services/user.service'
           },
           {
             path: 'profile',
+            component: ProfileComponent
+          },
+          {
+            path: 'edit',
             component: ProfileComponent
           },
           {
@@ -100,7 +104,18 @@ import { UserService} from './services/user.service'
             path: 'edit/:id',
             component: SelectedBookComponent
           },
-    
+          {
+            path: 'listUsers',
+            component: RegisteredUsersComponent
+          },
+          {
+            path: 'profile',
+            component: ProfileComponent,
+          },
+          {
+            path: 'edit',
+            component: ProfileComponent
+          }
         ]
       },
 

@@ -1,0 +1,19 @@
+$background: #0288D1;
+$font-color: #fff;
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+aside.sidebar {
+	list-style: none;
+	background: $background;
+	color: $font-color;
+	height: 100%;
+	li {
+		padding: 10px;
+		cursor: pointer;
+		font-size: 16px;
+		height: 100%;
+	}
+}

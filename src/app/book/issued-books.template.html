@@ -1,0 +1,7 @@
+<section [ngClass]="['issued-wrapper']">
+    <ul [ngClass]="['books']">
+        <li  *ngFor="let book of books"  [routerLink]="['/user/detail', book.id]">
+            <img src = "assets/images/{{book.title}}.jpg" class = " img-responsive col-xs-3 col-sm-2" alt="{{book.title}}">
+        </li>
+    </ul>
+</section>

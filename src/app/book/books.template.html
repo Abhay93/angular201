@@ -1,0 +1,64 @@
+<section [ngClass]="['books-wrapper']">
+  <div *ngIf = "previousRoute !== 'admin'">
+    <form [formGroup]="searchForm" novalidate [ngClass]="['col-sm-12']">
+        <input #searchBox placeholder="Search Book" [ngClass]="['col-sm-8 form-control search-box']" formControlName="searchControl" (keyup) = "searchBook(searchBox.value)">
+    </form>
+    <div *ngIf = "searchFlag === false">
+    <ul [ngClass]="['filter-list']">
+        <li (click)="recommendedBooks()">My Recommendations</li>
+        <li *ngFor="let book of books" (click)="filterBooks(book.genre)">
+            {{book.genre}}
+        </li>
+    </ul>
+
+    <ul [ngClass]="['books']" *ngIf = "filter === false">
+      <li  *ngFor="let book of books">
+        <img src = "assets/images/{{book.title}}.jpg" class = " img-responsive col-xs-3 col-sm-2" alt="{{book.title}}" (click)="goToBook(book)">
+      </li>
+    </ul>
+
+
+    <ul [ngClass]="['books']" *ngIf = "filter === true">
+        <li  *ngFor="let book of filteredBooks"
+          (click)="onSelect(book)">
+          <img src = "assets/images/{{book.title}}.jpg" class = " img-responsive col-xs-3 col-sm-2" alt="{{book.title}}" (click)="goToBook(book)">
+        </li>
+    </ul>
+  </div>
+  <div *ngIf = "searchFlag === true">
+    <ul [ngClass]="['books']">
+      <li  *ngFor="let book of searchResults"
+        (click)="onSelect(book)">
+        <img src = "assets/images/{{book.title}}.jpg" class = " img-responsive col-xs-3 col-sm-2" alt="{{book.title}}" (click)="goToBook(book)">
+      </li>
+    </ul>
+  </div>
+</div>
+<div *ngIf = "previousRoute === 'admin'">
+  <table *ngIf = "listBooks === true" [ngClass]="['col-sm-9 table table-responsive']">
+      <tr><th>Cover</th><th>Title</th><th>Author</th><th>Action</th></tr>
+      <tr *ngFor="let book of books">
+          <td [ngClass]="['col-sm-3']">
+              <img src = "assets/images/{{book.title}}.jpg" class = "img-responsive" alt="{{book.title}}" [routerLink]="['/admin/detail', book.id]">
+          </td>
+          <td [ngClass]="['col-sm-3']">{{book.title}}</td>
+          <td [ngClass]="['col-sm-3']">{{book.author}}</td>
+          <td [ngClass]="['col-sm-3']">
+              <button [ngClass]="['btn btn-md btn-primary col-sm-3']" [routerLink]="['/admin/edit', book.id]">Edit</button>
+              <button [ngClass]="['btn btn-md btn-danger col-sm-4 delete']" (click)="deleteBook(book);">Delete</button>
+          </td>
+      </tr>
+  </table> 
+  <div [ngClass]="['add-wrapper']" *ngIf = "addBookFlag === true">
+      <p [ngClass]="['alert alert-info message']" *ngIf = "bookAdded">Book added Successfully</p>
+      <div [ngClass]="['col-sm-8 add-container']">
+          <input #title placeholder = "Title" [ngClass]="['form-control']">
+          <input #author placeholder = "Author" [ngClass]="['form-control']">
+          <input #isbn placeholder = "ISBN" [ngClass]="['form-control']">
+          <textarea #description placeholder = "Description" [ngClass]="['form-control']"></textarea>
+          <button [ngClass]="['btn btn-md btn-primary col-sm-3']" (click)="addBook(title.value, author.value, description.value, isbn.value);">Add</button>
+          
+      </div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,41 @@
+<section [ngClass]="['col-sm-12 profile-wrapper']">
+        <p [ngClass]="['alert alert-info']" *ngIf = "updateSuccess">Profile details updated Succesfully</p>        
+            <img src="assets/images/user.jpg" class=" img-responsive col-xs-6 col-sm-3" alt="{{user.username}}">
+            <div [ngClass]="['info-box col-sm-9']">
+                <h2 [ngClass]="['username col-sm-12']">{{user.username}}</h2>
+                <table [ngClass]="[' col-sm-4']" *ngIf = "previousRoute === 'profile'">
+                    <tr>
+                        <td [ngClass]="['col-sm-4']">Email</td><td [ngClass]="['col-sm-8']">{{user.email}}</td>
+                    </tr>
+                    <tr>
+                        <td [ngClass]="['col-sm-4']">FB Id</td><td [ngClass]="['col-sm-8']"><a href = "{{user.facebookURL}}" target="_blank">{{user.facebookURL}}</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button [ngClass]="['btn btn-md edit-button']" [routerLink]="['/admin/edit']" *ngIf = "isAdmin">Edit</button>
+                            <button [ngClass]="['btn btn-md edit-button']" [routerLink]="['/user/edit']" *ngIf = "isAdmin === false">Edit</button>
+                        </td>
+                        <td>
+                            <button [ngClass]="['btn btn-md back-button']" (click)="goBack()">Back</button>
+                        </td>
+                        </tr>
+                </table>
+                <table [ngClass]="[' col-sm-4']" *ngIf = "previousRoute === 'edit'">
+                        <tr>
+                            <td [ngClass]="['col-sm-4']">Email</td><td [ngClass]="['col-sm-8']"><input #email [ngClass]="['profile-edit form-control']"></td>
+                        </tr>
+                        <tr>
+                            <td [ngClass]="['col-sm-4']">FB Id</td><td [ngClass]="['col-sm-8']"><input #fbid [ngClass]="['profile-edit form-control']"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button [ngClass]="['btn btn-md edit-button']" (click) = "updateProfile(email.value, fbid.value)">Update</button>
+                            </td>
+                            <td>
+                                <button [ngClass]="['btn btn-md back-button']" (click)="goBack()">Back</button>
+                            </td>
+                            </tr>
+                    </table>
+    
+            </div>
+</section>

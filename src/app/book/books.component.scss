@@ -1,0 +1,86 @@
+$background: #0288D1;
+$input-text-color: #555;
+$font-color: #fff;
+$span-color: #333333;
+$danger-button-background: #d9534f;
+$danger-button-border-color: #d43f3a;
+$font-family: Georgia, 'Times New Roman', Times, serif;
+* {
+	padding: 0px;
+	margin: 0px;
+}
+section.books-wrapper {
+    padding: 5px;
+    .filter-list {
+        list-style: none;
+        margin-top: 50px;
+        li {
+            display: inline;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 16px;
+        }
+    }
+    
+}
+.books {
+	list-style: none;
+	li {
+		display: inline;
+		cursor: pointer;
+	}
+	img {
+		margin: 5px;
+	}
+}
+section.issued-wrapper {
+	padding: 5px;
+}
+input, textarea {
+	height: 45px;
+	padding: 5px;
+	margin: 5px 1px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	color: $input-text-color;
+}
+textarea {
+	height: 100px;
+	resize: none;
+}
+
+button {
+	margin: 10px;
+	padding: 5px;
+	color: $font-color;
+	background: $background;
+}
+
+button.delete {
+	background: $danger-button-background;
+	border-color: $danger-button-border-color;
+}
+section.profile-wrapper {
+	padding: 15px;
+}
+table {
+	tr {
+		&:first-child {
+			border-top: none;
+			text-align: right;
+		}
+		text-align: left;
+		vertical-align: top;
+		border-bottom: 2px solid grey;
+		td {
+			padding: 10px;
+		}
+		img {
+			height: 100px;
+			width: 80px;
+			cursor: pointer;
+		}
+	}
+}
